@@ -11,9 +11,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <!-- script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
@@ -339,7 +339,7 @@
                     </div>
                 </div>
             </div>
-            <div class="all">
+            <div class="all" data-aos="fade-up"  data-aos-duration="2000" data-aos-delay="400">
                 <div class="all-wrap">
                     <div class="left">
                         <div class="left-wrap">
@@ -381,7 +381,7 @@
                     </div>
                     <div class="right">
                         <div thumbsSlider="" class="swiper mySwiper">
-                            <div class="swiper-wrapper">
+                            <div class="swiper-wrapper" aria-live="polite">
                               <div class="swiper-slide">
                                 <div class="right-img"><img src="image/re03_right_img01_n.png" alt=""></div>
                                 <div class="right-tit">
@@ -439,6 +439,9 @@
                           </div>
                     </div>
                 </div>
+            </div>
+            <div class="space-cursor">
+                <img src="image/mouse_cu.png" alt="">
             </div>
         </div>
         <div class="space">
@@ -858,6 +861,9 @@
                         </li>
                     </ul>
                 </div>
+                <div class="quick-round">
+                    <span>Quick<em>!</em></span>
+                </div>
                 <div class="quick-bottom">
                     <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="14.829" height="34.414" viewBox="0 0 14.829 34.414">
                         <g id="top_btn_arrow_b" transform="translate(-27.29 -1.29)">
@@ -871,49 +877,9 @@
         </div>
     </section>
     <script src="js/script.js"></script>
+    <script src="js/cursor.js"></script>
     <script>AOS.init();</script>
     <script>
-        // var swiper = new Swiper(".spaceSwiper", {
-        //   slidesPerView: 9,
-        //   loop:true,
-        //   spaceBetween: 10,
-        //   grabCursor: true,
-        //   autoplay:true,
-        //   pagination: {
-        //     el: ".swiper-pagination",
-        //     clickable: true,
-        //   },
-        // });
-$(document).on("mousemove", function (e) {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-$(".spaceSwiper").on("mouseenter", function () {
-  slide_lr02.addClass("active");
-});
-$(".spaceSwiper").on("mouseleave", function () {
-  slide_lr02.removeClass("active");
-});
-var slide_lr02 = $(".cursor_slide_lr02");
-var posX = 0,
-	posY = 0;
-var mouseX = 0,
-	mouseY = 0;
-TweenMax.to({}, 0.016, {
-	repeat: -1,
-	onRepeat: function () {
-	posX += (mouseX - posX) / 2;
-	posY += (mouseY - posY) / 2;
-
-		TweenMax.set(slide_lr02, {
-			css: {
-			left: posX - 55,
-			top: posY - 35
-			}
-		});
-	}
-});
-
 const multiplier = {
 		translate: .1,
 		//rotate: .01
@@ -923,10 +889,10 @@ const multiplier = {
 		// spaceBetween: 10,
 		slidesPerView:'auto',
 		loop:true,
-		autoplay: {
-			delay: 1000,
-			disableOnInteraction: false,
-		},
+		// autoplay: {
+		// 	delay: 1000,
+		// 	disableOnInteraction: false,
+		// },
 		mousewheelControl: true,
 		centeredSlides: true,
         slidesPerGroup: 1,
@@ -970,46 +936,170 @@ const multiplier = {
 
       </script>
     <script>
-      var mySwiper = new Swiper(".all-swiper-container", {
-        direction: "vertical",
-  slidesPerView: 1, // 한 번에 표시할 슬라이드 수
-  spaceBetween: 20, // 슬라이드 간의 간격  
-  //loop: true, // 슬라이드 루프(무한 회전) 활성화
-//   navigation: {
-//     nextEl: ".swiper-button-next", 
-//     prevEl: ".swiper-button-prev"
-//   },
-//   pagination: {
-//     el: '.swiper-pagination', // 페이지 표시기
-//     clickable: true // 페이지 번호 클릭 가능하게 설정
-//   },  
-//   autoplay: {
-//     delay: 3000, // 3초마다 자동 재생
-//     disableOnInteraction: false // 사용자 상호 작용 후에도 자동 재생 유지
-//   },  
-        
-  mousewheel: true, // 마우스 휠로 슬라이드 이동 가능
-//   centeredSlides: true, // 슬라이드 중앙 정렬  
-});
-    </script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-          spaceBetween: 10,
-        //   slidesPerView: 4,
-          freeMode: true,
-          watchSlidesProgress: true,
-          direction: "vertical",
-        });
-        var swiper2 = new Swiper(".mySwiper2", {
-            direction: "vertical",
-    //   slidesPerView: 1,
-    //   spaceBetween: 30,
-      mousewheel: true,
-          thumbs: {
-            swiper: swiper,
-          },
-        });
+        const sliderThumbs = new Swiper(".mySwiper2", {
+            direction: 'vertical',
+		slidesPerView: 1, 
+		loop: false, 
+		speed: 1000,
+		effect: 'fade', 
+		fadeEffect: {
+			crossFade: true ,
+		},
+		mousewheel: true, 
+		on: {
+			slideChange: function() {
+				sliderImages.slideTo(this.activeIndex); 
+				setTimeout(() => {
+					sliderThumbs.params.touchReleaseOnEdges = false;  
+					sliderThumbs.params.mousewheel.releaseOnEdges = false;
+				});
+			},
+			reachEnd: function() {
+				setTimeout(() => {
+					sliderThumbs.params.touchReleaseOnEdges = true;
+					sliderThumbs.params.mousewheel.releaseOnEdges = true;
+				}, 500);
+			},
+			reachBeginning: function() {
+				setTimeout(() => {
+					sliderThumbs.params.touchReleaseOnEdges = true;
+					sliderThumbs.params.mousewheel.releaseOnEdges = true;
+				}, 500);
+			}
+		}
+	});
+
+        const sliderImages = new Swiper(".mySwiper", {
+            direction: 'vertical', 
+		slidesPerView: 'auto', 
+		speed: 1000,
+		centeredSlides: true,
+		mousewheel: true, 
+		loop: false, 
+		thumbs: { 
+			swiper: sliderThumbs,
+		},
+		/*breakpoints: {
+			0: { 
+				direction: 'horizontal',
+			},
+			768: {
+				direction: 'vertical', 
+			}
+		},*/
+		on: {
+			slideChange: function() {
+				sliderThumbs.slideTo(this.activeIndex); 
+				setTimeout(() => {
+					sliderImages.params.touchReleaseOnEdges = false;  
+					sliderImages.params.mousewheel.releaseOnEdges = false;
+				});
+			},
+			reachEnd: function() {
+				setTimeout(() => {
+					sliderImages.params.touchReleaseOnEdges = true;
+					sliderImages.params.mousewheel.releaseOnEdges = true;
+				}, 500);
+			},
+			reachBeginning: function() {
+				setTimeout(() => {
+					sliderImages.params.touchReleaseOnEdges = true;
+					sliderImages.params.mousewheel.releaseOnEdges = true;
+				}, 500);
+			}
+		}
+	});
+
+    // cc
+    let isScrollAllowed = false;
+
+	function handleMouseWheel(event, swiper, oppositeSwiper) {
+		const { isEnd, isBeginning } = swiper;
+
+		if (isScrollAllowed) {
+			return; 
+		}
+
+		if (event.deltaY < 0 && !isBeginning) {
+			event.preventDefault();
+			event.stopPropagation();
+			swiper.slidePrev();
+			oppositeSwiper.slidePrev();
+		} else if (event.deltaY > 0 && !isEnd) {
+			event.preventDefault();
+			event.stopPropagation();
+			swiper.slideNext();
+			oppositeSwiper.slideNext();
+		}
+
+		if (event.deltaY > 0 && isEnd) {
+			isScrollAllowed = true; 
+		}
+	}
+	sliderThumbs.el.addEventListener('wheel', function(event) {
+		handleMouseWheel(event, sliderThumbs, sliderImages);
+	});
+
+	sliderImages.el.addEventListener('wheel', function(event) {
+		handleMouseWheel(event, sliderImages, sliderThumbs);
+	});
+
+	window.addEventListener('scroll', function() {
+		const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+		const windowHeight = window.innerHeight;
+		const threshold = windowHeight * 0.5; 
+
+		if (currentScroll <= threshold) {
+			isScrollAllowed = false; 
+			sliderThumbs.slideTo(0, 0); 
+			sliderImages.slideTo(0, 0); 
+			setTimeout(() => {
+				sliderThumbs.params.touchReleaseOnEdges = false;  
+				sliderThumbs.params.mousewheel.releaseOnEdges = false;
+				sliderImages.params.touchReleaseOnEdges = false;  
+				sliderImages.params.mousewheel.releaseOnEdges = false;
+			}, 0);
+		} else if (currentScroll > threshold) {
+			isScrollAllowed = true; 
+		}
+	});
+
+	window.addEventListener('resize', function() {
+		sliderThumbs.update(); 
+		sliderImages.update(); 
+	});
       </script>
-      
+      <script>
+        // 호버시 마우스 커서
+$(document).on("mousemove", function (e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+$(".spaceSwiper").on("mouseenter", function () {
+  slide_lr02.addClass("active");
+});
+$(".spaceSwiper").on("mouseleave", function () {
+  slide_lr02.removeClass("active");
+});
+var slide_lr02 = $(".space-cursor");
+var posX = 0,
+	  posY = 0;
+var mouseX = 0,
+	  mouseY = 0;
+TweenMax.to({}, 0.016, {
+	  repeat: -1,
+	  onRepeat: function () {
+	  posX += (mouseX - posX) / 2;
+	  posY += (mouseY - posY) / 2;
+
+		TweenMax.set(slide_lr02, {
+			css: {
+			left: posX - 55,
+			top: posY - 35
+			}
+		});
+	}
+}); //tweenmax
+      </script>
 </body>
 </html>

@@ -103,6 +103,28 @@ $(window).on("scroll", function() {
   }
 });
 
+$('.quick').click(function() {
+  $('.quick-btn').toggleClass('rotate')
+  $('.circle').toggleClass('rotate')
+  $('.quick-top').toggleClass('rotate')
+  $('.quick-round').toggleClass('rotate')
+ });
+
+ $('.quick').click(function() {
+  $('.quick-btn').toggleClass('rotate')
+  if ($('.quick-btn').hasClass('rotate')) {
+    // open 클래스가 있으면 open 제거, on 추가
+    $('.quick-btn').removeClass('rotate').addClass('active');
+  } else if ($('.quick-btn').hasClass('active')) {
+    // on 클래스가 있으면 on 제거, open 추가
+    $('.quick-btn').removeClass('active').addClass('rotate');
+  } else {
+    // 두 클래스가 없을 때 기본적으로 open 추가
+    $('.quick-btn').addClass('rotate');
+  }
+});
+
+
 // top버튼
 $(".quick .quick-bottom").on('click', function(){
   $('body, html').animate({ scrollTop: 0 }, 300 );
@@ -113,6 +135,7 @@ $(".fix-scroll .fix-top a").on('click', function(){
   $('body, html').animate({ scrollTop: 0 }, 300 );
   return false;
 });
+
 
 
 
